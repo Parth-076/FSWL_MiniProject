@@ -1,4 +1,6 @@
 require('dotenv').config();
+// const dotenvx = require('dotenv');
+// dotenvx.config({ path: './config/.env' });
 
 if (!process.env.MONGO_URI) {
     console.error('MONGO_URI is not defined, create a .env file (see .env.example) and set the MONGO_URI variable');
