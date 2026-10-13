@@ -20,7 +20,8 @@
  * ============================================================================
  */
 
-const API_BASE_URL = import.meta.env?.VITE_API_BASE_URL || '/api';
+const rawBaseUrl = (import.meta.env?.VITE_API_BASE_URL || '/api').replace(/\/+$/, '');
+const API_BASE_URL = rawBaseUrl.endsWith('/api') ? rawBaseUrl : `${rawBaseUrl}/api`;
 const TOKEN_KEY = 'snipurl_auth_token';
 
 // Listeners for global session expiration

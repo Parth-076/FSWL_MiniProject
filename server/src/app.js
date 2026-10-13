@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/urls', urlRoutes);
 
+// Fallback aliases for direct calls without /api prefix
+app.use('/auth', authRoutes);
+app.use('/urls', urlRoutes);
+
 // Root redirect route with short code validation
 app.get('/:shortCode', validateShortCode('shortCode'), asyncHandler(redirectUrl));
 
